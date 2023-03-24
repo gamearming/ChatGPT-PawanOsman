@@ -3,6 +3,9 @@
   <a href="./README.md">English</a>
 </div>
 
+[![NPM](https://img.shields.io/npm/v/chatgpt-io.svg?label=NPM&logo=npm&color=CB3837)](https://www.npmjs.com/package/chatgpt-io)
+[![正體中文](https://img.shields.io/discord/1055397662976905229?color=5865F2&label=Discord&logo=discord&logoColor=white)](./README.tw.md)
+
 ## [檢查新的 Google Bard 聊天機器人！](https://github.com/PawanOsman/GoogleBard)
 
 # 2023/03/24 更新
