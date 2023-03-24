@@ -1,5 +1,5 @@
 [![正體中文](https://img.shields.io/badge/正體中文-Taiwan-green)](./README.tw.md)
-[![English](https://img.shields.io/badge/英文-English-green)](./README.md)
+[![English](https://img.shields.io/badge/English-original-green)](./README.md)
 
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
