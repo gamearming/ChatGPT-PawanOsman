@@ -20,8 +20,8 @@
 -  [如何使用 ChatGPT API 反向代理](#如何使用-chatgpt-api-反向代理)
   - [使用自已託管的 API 反向代理](#使用自已託管的-api-反向代理)
   - [使用我們提供的 API 反向代理](#使用我們提供的-api-反向代理)
-    - [文字完成](#文字完成)
-    - [聊天完成 (ChatGPT)](#聊天完成-chatgpt)
+    - [文字發送](#文字發送)
+    - [聊天室發送 (ChatGPT)](#聊天室發送-chatgpt)
     - [圖片產生 (DALL-E)](#圖片產生-dall-e)
 
 - [授權協議](#授權協議)
@@ -78,7 +78,7 @@ http://localhost:3000/v1/chat/completions
 2. 通過在 `＃Bot` 頻道中發送 `/key` 命令來獲取 API 金鑰。
 3. 在您的請求中使用 API 金鑰，訪問以下端點。
 
-## 文字完成：
+## 文字發送：
 
 ```txt
 https://api.pawan.krd/v1/completions
@@ -112,7 +112,7 @@ curl --location "https://api.pawan.krd/v1/completions" ^
 ```
 
 
-## 聊天完成 (ChatGPT)：
+## 聊天室發送 (ChatGPT)：
 
 ```txt
 https://api.pawan.krd/v1/chat/completions
@@ -139,7 +139,14 @@ curl --location 'https://api.pawan.krd/v1/chat/completions' \
     ]
 }'
 ```
+---
+```cmd
+curl --location "https://api.pawan.krd/v1/chat/completions" ^
+--header "Authorization: Bearer pk-***[OUR_API_KEY]***" ^
+--header "Content-Type: application/json" ^
+--data "{\"model\": \"gpt-3.5-turbo\", \"max_tokens\": 100, \"messages\": [{\"role\": \"system\",\"content\": \"You are an helful assistant\"},{\"role\": \"user\",\"content\": \"Who are you?\"}]}"
 
+```
 ## 圖片產生 (DALL-E)：
 
 ```txt
@@ -157,6 +164,14 @@ curl --location 'https://api.pawan.krd/v1/images/generations' \
     "n": 1,
     "size": "1024x1024"
 }'
+```
+
+---
+```
+curl --location "https://api.pawan.krd/v1/images/generations" ^
+--header "Authorization: Bearer pk-***[OUR_API_KEY]***" ^
+--header "Content-Type: application/json" ^
+--data "{\"prompt\": \"a photo of a happy corgi puppy sitting and facing forward, studio light, longshot\",\"n\": 1,\"size\": \"1024x1024\"}"
 ```
 
 # 授權協議
