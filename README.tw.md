@@ -17,9 +17,9 @@
 
 # 目錄
 - [功能](#功能)
-- [如何使用 ChatGPT API 反向代理](#如何使用 ChatGPT API 反向代理)
-  - [使用自已託管的 API 反向代理](#使用自已託管的 API 反向代理)
-  - [使用我們提供的 API 反向代理](#使用我們提供的 API 反向代理)
+-  [如何使用 ChatGPT API 反向代理](#如何使用-chatgpt-api-反向代理)
+  - [使用自已託管的 API 反向代理](#使用自已託管的-api-反向代理)
+  - [使用我們提供的 API 反向代理](#使用我們提供的-api-反向代理)
     - [文字完成](#文字完成)
     - [聊天完成 (ChatGPT)](#聊天完成-chatgpt)
     - [圖片產生 (DALL-E)](#圖片產生-dall-e)
@@ -36,19 +36,19 @@
 
 
 
-## 如何使用 ChatGPT API 反向代理
+# 如何使用 ChatGPT API 反向代理
 
 您可以通過選擇以下方法之一來使用 ChatGPT API 反向代理：
 
-- [自已託管的 API 反向代理](#使用自已託管的 API 反向代理)
-- [我們提供的 API 反向代理](#使用我們提供的 API 反向代理)‌
+- [自已託管的 API 反向代理](#使用自已託管的-api-反向代理)
+- [我們提供的 API 反向代理](#使用我們提供的-api-反向代理)‌
 
 # 使用自已託管的 API 反向代理
 
 要自行託管 ChatGPT API，請按照以下步驟：
 
 1. [建立 OpenAI API Key](https://platform.openai.com/account/api-keys)
-2. 克隆此儲存庫並安裝依賴項：
+2. 複製此儲存庫並安裝依賴項：
 
 ```bash
 git clone https://github.com/PawanOsman/ChatGPT.git
@@ -70,12 +70,12 @@ http://localhost:3000/v1/completions
 http://localhost:3000/v1/chat/completions
 ```
 
-# 使用我們提供的 API 反向代理
+## 使用我們提供的 API 反向代理
 
 要使用我們託管的 ChatGPT API，請按照以下步驟：
 
 1. 加入我們的 [Discord](https://discord.pawan.krd) 服務器。
-2. 通過在 “＃Bot” 頻道中發送 “/key” 命令來獲取 API 金鑰。
+2. 通過在 `＃Bot` 頻道中發送 `/key` 命令來獲取 API 金鑰。
 3. 在您的請求中使用 API 金鑰，訪問以下端點。
 
 ## 文字完成：
@@ -85,7 +85,7 @@ https://api.pawan.krd/v1/completions
 ```
 
 ### 範例：[OpenAI 參考文件](https://platform.openai.com/docs/api-reference/completions)
-
+ 
 ```bash
 curl --location 'https://api.pawan.krd/v1/completions' \
 --header 'Authorization: Bearer pk-***[OUR_API_KEY]***' \
@@ -101,6 +101,16 @@ curl --location 'https://api.pawan.krd/v1/completions' \
     ]
 }'
 ```
+
+---
+
+```cmd
+curl --location "https://api.pawan.krd/v1/completions" ^
+--header "Authorization: Bearer pk-***[OUR_API_KEY]***" ^
+--header "Content-Type: application/json" ^
+--data "{\"model\": \"text-davinci-003\", \"prompt\": \"Human: Hello\\nAI:\", \"temperature\": 0.7, \"max_tokens\": 256, \"stop\": [\"Human:\", \"AI:\"]}"
+```
+
 
 ## 聊天完成 (ChatGPT)：
 
