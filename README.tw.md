@@ -1,10 +1,5 @@
-<div style="font-size: 1.5rem;">
-  <a href="./README.tw.md">正體中文</a> |
-  <a href="./README.md">English</a>
-</div>
-
-[![NPM](https://img.shields.io/npm/v/chatgpt-io.svg?label=NPM&logo=npm&color=CB3837)](https://www.npmjs.com/package/chatgpt-io)
-[![正體中文](https://img.shields.io/discord/1055397662976905229?color=5865F2&label=Discord&logo=discord&logoColor=white)](./README.tw.md)
+[![正體中文](https://img.shields.io/badge/正體中文-Taiwan-green)](./README.tw.md)
+[![English](https://img.shields.io/badge/英文-English-green)](./README.md)
 
 ## [檢查新的 Google Bard 聊天機器人！](https://github.com/PawanOsman/GoogleBard)
 
