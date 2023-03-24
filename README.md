@@ -2,6 +2,7 @@
   <a href="./README.tw.md">正體中文</a> |
   <a href="./README.md">English</a>
 </div>
+
 ## [Check the new Google Bard Chatbot!](https://github.com/PawanOsman/GoogleBard)
 
 # _24-MARCH-2023 Update_
