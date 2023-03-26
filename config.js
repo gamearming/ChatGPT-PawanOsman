@@ -1,23 +1,40 @@
-// Server configuration
-export const SERVER_PORT = 3000; // Server port
-export const DEBUG = false; // Debug mode
+/**
+ * 伺服器設定檔
+ * @constant {number} SERVER_PORT - 伺服器通訊埠
+ * @constant {boolean} DEBUG - 是否啟用除錯模式
+ */
+export const SERVER_PORT = 3000;
+export const DEBUG = false;
 
-// Prompt Moderation before sending to OpenAI
-export const MODERATION = true; // Moderation mode
+/**
+ * 提示審核模式(發送至 OpenAI API 前進行調節)
+ * @constant {boolean} MODERATION - 是否啟用提示審核模式
+ */
+export const MODERATION = true;
 
-// Rate limit
-export const PRIOD = 15 * 1000; // 15 seconds
-export const RATE_LIMIT = 50; // 50 requests per 15 seconds
+/**
+ * 速率限制
+ * @constant {number} PRIOD - 速率限制的時間，以毫秒為單位
+ * @constant {number} RATE_LIMIT - 速率限制的請求數量
+ */
+export const PRIOD = 15 * 1000;
+export const RATE_LIMIT = 50;
 
-// Whitelisted IPs
+/**
+ * 白名單 IP (可以繞過某些安全措施)
+ * @constant {string[]} WHITELISTED_IPS - 允許訪問伺服器的 IP 位址名單
+ */
 export const WHITELISTED_IPS = [
-    // "127.0.0.1"
+  // "127.0.0.1"
 ];
 
-// OpenAI API Keys
+/**
+ * OpenAI API 金鑰清單
+ * @type {string[]}
+ */
 export let OPENAI_KEYS = [
-    "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+  "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 ];
