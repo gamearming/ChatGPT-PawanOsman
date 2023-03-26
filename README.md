@@ -26,17 +26,19 @@
 
 ## 功能 
 
-- **多個 OpenAI 金鑰** - 您可以使用多個 OpenAI 金鑰，API 會隨機選擇一個金鑰使用。
-- **審核** - API 具有內建的審核系統，會自動檢查提示，然後再發送到 OpenAI API（以防止 OpenAI 因違反其政策而停用帳戶）。
-- **流式回應** - API 支援流式回應，因此您可以在可用時立即獲取回應。
-- **與官方相同** - API 具有與官方 API 相同的端點，因此您可以使用相同的程式碼訪問 API（甚至是官方的 OpenAI 函式庫）
-- **免費** - 通過我們提供的 [API 反向代理] (#use-our-hosted-api) 可以免費使用 API（您也可以使用自行託管 API 反向代理）。
+- **多個 OpenAI 金鑰** - 可以設定多個 OpenAI 金鑰，該 API 會隨機選擇其中一個金鑰來使用。
+- **審核** - 這個 API 具有內建的審核系統，會在提示傳送到 OpenAI API 之前自動檢查它（以防止 OpenAI 因違反其政策而終止帳戶）。
+- **串流回應** - 這個 API 支援串流回應，透過串流回應，可以立即收到回應的部分內容，而不需等待整個回應完成後才傳回。<br>
+當處理大量資料或即時資料流時，串流回應尤其有用。<br>
+使用此功能，通常會設置回調函式來處理接收到的每個資料區段。
+- **官方相容** - 這個 API 使用與 OpenAI API 相同的連接埠，因此可以不用修改程式碼來存取 OpenAI API 函式庫。
+- **免費** - 可以免費使用[我們提供的 API 反向代理](#使用我們提供的-api-反向代理)，或使用[自行託管的 API 反向代理](#使用自已託管的-api-反向代理)。
 
 
 
 # 如何使用 ChatGPT API 反向代理
 
-您可以通過選擇以下方法之一來使用 ChatGPT API 反向代理：
+您可以選擇以下方法之一來使用 ChatGPT API 反向代理：
 
 - [自已託管的 API 反向代理](#使用自已託管的-api-反向代理)
 - [我們提供的 API 反向代理](#使用我們提供的-api-反向代理)‌
@@ -46,7 +48,7 @@
 要自行託管 ChatGPT API，請按照以下步驟：
 
 1. [建立 OpenAI API Key](https://platform.openai.com/account/api-keys)
-2. 複製此儲存庫並安裝依賴項：
+2. 複製此儲存庫並安裝相關的依賴套件：
 
 ```bash
 git clone https://github.com/PawanOsman/ChatGPT.git
@@ -61,7 +63,7 @@ npm install
 npm start
 ```
 
-4. 通過向 API 端點發送 HTTP 請求來使用 API，例如：
+4. 通過向 API 連接埠發送 HTTP 請求來使用 API，例如：
 
 ```txt
 http://localhost:3000/v1/completions
@@ -73,8 +75,8 @@ http://localhost:3000/v1/chat/completions
 要使用我們託管的 ChatGPT API，請按照以下步驟：
 
 1. 加入我們的 [Discord](https://discord.pawan.krd) 服務器。
-2. 通過在 `＃Bot` 頻道中發送 `/key` 命令來獲取 API 金鑰。
-3. 在您的請求中使用 API 金鑰，訪問以下端點。
+2. 通過在 `＃Bot` 頻道中發送 `/key` 命令來獲取 API 金鑰，並將金鑰取代 pk-***[OUR_API_KEY]***。
+3. 在您的請求中使用 API 金鑰，訪問以下連結。
 
 ## 文字發送：
 
