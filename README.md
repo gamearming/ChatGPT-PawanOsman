@@ -1,4 +1,4 @@
-[![正體中文](https://img.shields.io/badge/正體中文-Taiwan-green)](./README.tw.md)
+[![正體中文](https://img.shields.io/badge/正體中文-Taiwan-green)](./README.md)
 [![English](https://img.shields.io/badge/English-original-green)](https://github.com/0954011723/ChatGPT-PawanOsman/blob/main/README.md)
 
 ## [檢查新的 Google Bard 聊天機器人！](https://github.com/PawanOsman/GoogleBard)
