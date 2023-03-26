@@ -2,6 +2,7 @@
  * 伺服器設定檔
  * @constant {number} SERVER_PORT - 伺服器通訊埠
  * @constant {boolean} DEBUG - 是否啟用除錯模式
+ * 預設值:  SERVER_PORT = 3000, DEBUG = false
  */
 export const SERVER_PORT = 3000;
 export const DEBUG = false;
@@ -9,6 +10,7 @@ export const DEBUG = false;
 /**
  * 提示審核模式(發送至 OpenAI API 前進行調節)
  * @constant {boolean} MODERATION - 是否啟用提示審核模式
+ * 預設值: MODERATION = true
  */
 export const MODERATION = true;
 
@@ -16,6 +18,7 @@ export const MODERATION = true;
  * 速率限制
  * @constant {number} PRIOD - 速率限制的時間，以毫秒為單位
  * @constant {number} RATE_LIMIT - 速率限制的請求數量
+ * 預設值: PRIOD = 15 * 1000, RATE_LIMIT = 50
  */
 export const PRIOD = 15 * 1000;
 export const RATE_LIMIT = 50;
