@@ -26,6 +26,7 @@ export const RATE_LIMIT = 50;
 /**
  * 白名單 IP (可以繞過某些安全措施)
  * @constant {string[]} WHITELISTED_IPS - 允許訪問伺服器的 IP 位址名單
+ * 預設值: 無
  */
 export const WHITELISTED_IPS = [
   // "127.0.0.1"
@@ -34,6 +35,7 @@ export const WHITELISTED_IPS = [
 /**
  * OpenAI API 金鑰清單
  * @type {string[]}
+ * 預設值: 無
  */
 export let OPENAI_KEYS = [
   "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
