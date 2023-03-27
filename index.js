@@ -1,9 +1,3 @@
-/**
- * @fileoverview 這是 BAI Chat 的伺服器端程式碼，使用 Express 建立 Web API。
- * @author The BAI LLC
- * @version 0.1
- */
-
 import express, { json, urlencoded } from 'express';
 import { completions, chatCompletions } from './routes.js';
 import { corsMiddleware, rateLimitMiddleware } from './middlewares.js';
@@ -65,9 +59,9 @@ app.post("/v1/completions", completions);
 app.post("/v1/chat/completions", chatCompletions);
 
 /**
- * 啟動伺服器，監聽指定端口
+ * 啟動伺服器，監聽指定通訊埠
  * @function
- * @param {number} SERVER_PORT - 伺服器監聽的端口號
+ * @param {number} SERVER_PORT - 伺服器監聽的通訊埠
  */
 app.listen(SERVER_PORT, () => {
     console.log(`Listening on ${SERVER_PORT} ...`);
