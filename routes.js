@@ -1,12 +1,16 @@
-import axios from "axios";
-import { Configuration, OpenAIApi } from "openai";
-import { streamCompletion, generateId, getOpenAIKey } from "./functions.js"
-import { DEBUG, MODERATION } from "./config.js";
-
+/**
+ * 使用 OpenAI API 來產生應答內容
+ * @function completions
+ * @async
+ * @param {Object} req - 請求物件
+ * @param {Object} res - 回應物件
+ * @returns {Promise<void>}
+ */
 async function completions(req, res) {
     let orgId = generateId();
     let key = getOpenAIKey();
 
+    // 如果沒有提供 prompt，回傳錯誤訊息
     if (!req.body.prompt) {
         res.set("Content-Type", "application/json");
         return res.status(400).send({
@@ -15,8 +19,10 @@ async function completions(req, res) {
         });
     }
 
+    // 顯示 debug 訊息
     if (DEBUG) console.log(`[Text] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${req.body.prompt}`);
 
+    // 進行內容審查
     if (MODERATION) {
         try {
             let openAi = new OpenAIApi(new Configuration({ apiKey: key.apikey }));
@@ -33,12 +39,10 @@ async function completions(req, res) {
                     contact: "https://discord.pawan.krd"
                 });
             }
-        }
-        catch (e) {
-
-        }
+        } catch (e) { }
     }
 
+    // 如果是 stream 模式
     if (req.body.stream) {
         try {
             const response = await axios.post(
@@ -88,8 +92,7 @@ async function completions(req, res) {
                         error: "something went wrong!"
                     });
                 }
-            }
-            catch (e) {
+            } catch (e) {
                 console.log(e);
                 return res.status(500).send({
                     status: false,
@@ -98,10 +101,10 @@ async function completions(req, res) {
             }
         }
     }
+    // 如果不是 stream 模式
     else {
         try {
-            const response = await axios.post(
-                `https://api.openai.com/v1/completions`, req.body,
+            const response = await axios.post(`https://api.openai.com/v1/completions`, req.body,
                 {
                     headers: {
                         Accept: "application/json",
@@ -131,12 +134,22 @@ async function completions(req, res) {
     }
 }
 
+/**
+ * 使用 OpenAI API 來產生聊天應答內容
+ * @function chatCompletions
+ * @async
+ * @param {Object} req -請求物件
+ * @param {Object} res - 回應物件
+ * @returns {Promise<void>}
+ */
 async function chatCompletions(req, res) {
     let orgId = generateId();
     let key = getOpenAIKey(true);
 
+    // 顯示 debug 訊息
     if (DEBUG) console.log(`[CHAT] [${req.user.data.id}] [${req.user.data.name}] [MAX-TOKENS:${req.body.max_tokens ?? "unset"}] ${prompt}`);
 
+    // 進行內容審查
     if (MODERATION) {
         try {
             let prompt = "";
@@ -166,12 +179,10 @@ async function chatCompletions(req, res) {
                     support: "https://discord.pawan.krd"
                 });
             }
-        }
-        catch (e) {
-
-        }
+        } catch (e) { }
     }
 
+    // 如果是 stream 模式
     if (req.body.stream) {
         try {
             const response = await axios.post(
@@ -224,8 +235,7 @@ async function chatCompletions(req, res) {
                         error: "something went wrong!"
                     });
                 }
-            }
-            catch (e) {
+            } catch (e) {
                 if (DEBUG) console.log(e);
                 return res.status(500).send({
                     status: false,
@@ -233,11 +243,9 @@ async function chatCompletions(req, res) {
                 });
             }
         }
-    }
-    else {
+    } else { // 如果不是 stream 模式
         try {
-            const response = await axios.post(
-                `https://api.openai.com/v1/chat/completions`, req.body,
+            const response = await axios.post(`https://api.openai.com/v1/chat/completions`, req.body,
                 {
                     headers: {
                         Accept: "application/json",
@@ -255,8 +263,7 @@ async function chatCompletions(req, res) {
             try {
                 error.response.data.error.message = error.response.data.error.message.replace(/org-[a-zA-Z0-9]+/, orgId);
                 return res.status(error.response.status).send(error.response.data);
-            }
-            catch (e) {
+            } catch (e) {
                 if (DEBUG) console.log(e);
                 return res.status(500).send({
                     status: false,
